@@ -1,0 +1,192 @@
+<div class="card mb-0">
+    <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Laboratory</label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>FRI Laboratory</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <label>Enquiry and Order confirmation</label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Terms of Delivery Incoming</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <label>Accounting</label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Terms of Payment</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <label>Processing</label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Merchandiser QB</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Latest FRI Date</mat-label>
+                        <input matInput [matDatepicker]="lastFRIDate">
+                        <mat-datepicker-toggle matSuffix [for]="lastFRIDate"></mat-datepicker-toggle>
+                        <mat-datepicker #lastFRIDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Terms of Delivery Outgoing</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>LC Status</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Packing QB</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>FRI Date</mat-label>
+                        <input matInput [matDatepicker]="FRIDate">
+                        <mat-datepicker-toggle matSuffix [for]="FRIDate"></mat-datepicker-toggle>
+                        <mat-datepicker #FRIDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Terms of Delivery Outgoing
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            B/L received
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Placed at supplier</mat-label>
+                        <input matInput [matDatepicker]="supplierDate">
+                        <mat-datepicker-toggle matSuffix [for]="supplierDate"></mat-datepicker-toggle>
+                        <mat-datepicker #supplierDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="FRI Quantity" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Latest Reporting Date ALDI" type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Testing Laboratory</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Original sapmle Pick date</mat-label>
+                        <input matInput [matDatepicker]="OriginalPickDate">
+                        <mat-datepicker-toggle matSuffix [for]="OriginalPickDate"></mat-datepicker-toggle>
+                        <mat-datepicker #OriginalPickDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>new sample pick date</mat-label>
+                        <input matInput [matDatepicker]="newPickDate">
+                        <mat-datepicker-toggle matSuffix [for]="newPickDate"></mat-datepicker-toggle>
+                        <mat-datepicker #newPickDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sample Pick Short Result</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

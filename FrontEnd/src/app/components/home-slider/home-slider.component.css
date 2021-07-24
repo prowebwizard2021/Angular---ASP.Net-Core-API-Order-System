@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+.splide__slide {
+    /* padding: 6rem; */
+    display: flex;
+    justify-content: center;
+    background: #ecf0f1;
+    height: 300px;
+}
+
+.splide__slide__container {
+    width: 100%;
+    text-align: center;
+}
+
+.slide__content {
+    /* margin: 1rem 0; */
+    font-size: 1.3rem;
+    height: 100%;    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slide-img__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.slide-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.slide-img__caption {
+    margin-left: 1rem;
+}
+
+.slide-img__caption span {
+    color: #2e86c1;
+    font-weight: 500;
+}
+
+/* Adding custom styling to the pagination */
+.splide__pagination__page.is-active {
+    /* here I have changed the scale from 1.4 to 1.5 */
+    transform: scale(1.5);
+    /* changed from default bg-color to blue */
+    background: #0b72e7;
+}
+
+.slide__content1{
+    background: url('../../../assets/img/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide__content2{
+    background: url('../../../assets/img/4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide__content3{
+    background: url('../../../assets/img/5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide_text{
+    font-size: 26px;
+    color:white;
+}

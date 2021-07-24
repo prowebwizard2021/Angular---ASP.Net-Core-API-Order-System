@@ -1,0 +1,167 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Style" type="text" [(ngModel)]="title">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Quantity" type="number" [(ngModel)]="quantityPlaced">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label> <h3 style="color:black">Purchase Price</h3></label>
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Purchase Price 1" type="number" required [(ngModel)]="purchasePrice1">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <label> <h3 style="color:black">Selling Price</h3></label>
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Selling Price GP" type="number" [(ngModel)]="vKGP">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Purchase Price 2" type="number" [(ngModel)]="purchasePrice2">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Selling Price incl, incoterm" type="number" required [(ngModel)]="vKGPNachLB">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Purchase Price 3" type="number" [(ngModel)]="purchasePrice3">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Currency Purchase Price</mat-label>
+                                        <mat-select>
+                                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                {{food.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Currency Purchase Price</mat-label>
+                                        <mat-select>
+                                            <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                {{food.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Exchange Rate Selling Price GP" type="number">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Exchange Rate Purchase Price" type="number" [(ngModel)]="exchangeRatePurchasePrice">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Purchase Price not Fixed" type="number">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Rate of Duty" type="number" [(ngModel)]="rateOfDutyPuchasePrice">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body table-responsive">
+                                            <table class="table table-hover">
+                                                <thead class="text-warning">
+                                                    <th>Markup Type</th>
+                                                    <th>Markup</th>
+                                                    <th>Details</th>
+                                                    <th>Remove</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of markupTable; index as i">
+                                                        <td>{{item.type}}</td>
+                                                        <td>${{item.markup}}</td>
+                                                        <td><button mat-raised-button type="submit" class="btn btn-success mr-3" (click)="openPurchaseModal1(true, i)">Detail</button></td>
+                                                        <td><button mat-raised-button type="submit" class="btn btn-danger" (click)="removeMarkup(i)">Remove</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <button (click)="openPurchaseModal1(false, 0)" class="btn btn-info">New Purchase Price Markup</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body table-responsive">
+                                            <table class="table table-hover">
+                                                <thead class="text-warning">
+                                                    <th>Markup Type</th>
+                                                    <th>Markup</th>
+                                                    <th>Details</th>
+                                                    <th>Remove</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of markdownTable; index as i">
+                                                        <td>{{item.type}}</td>
+                                                        <td>${{item.markdown}}</td>
+                                                        <td><button mat-raised-button type="submit" class="btn btn-success mr-3" (click)="openPurchaseModal2(true, i)">Detail</button></td>
+                                                        <td><button mat-raised-button type="submit" class="btn btn-danger" (click)="removeMarkdown(i)">Remove</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <button (click)="openPurchaseModal2(false, 0)" class="btn btn-info">New Purchase Price Markup</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button mat-raised-button type="submit" class="btn btn-success mr-3" (click)="saveBtn()">Save</button>
+                                    <button mat-raised-button type="submit" class="btn btn-danger" (click)="cancelBtn()">Cancel</button>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

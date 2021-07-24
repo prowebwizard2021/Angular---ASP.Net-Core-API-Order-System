@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Order System</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css" />
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if(document.getElementsByClassName('splide').length == 0) return;
+    new Splide(".splide", {
+      type    : 'loop',
+      perPage : 1,
+      autoplay: true,
+      interval: 2500,
+      focus  : 'center',
+      cover  : true
+    }).mount();
+  });
+</script>
+</html>

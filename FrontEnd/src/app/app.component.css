@@ -1,0 +1,23 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+a.title {
+  color: white;
+}
+
+.mat-toolbar {
+  background-color: #008975;
+}
+
+.mat-raised-button {
+  margin-right: 10px;
+}
+
+.app-footer{
+  text-align: center;
+  font-size: 16px;
+  background: grey;
+  color: white;
+  padding: 12px;
+}

@@ -1,0 +1,18 @@
+<div class="container">
+  <mat-toolbar>
+    <a class="title" href="/">{{ title }}</a>  
+    <div class="toolbar-spacer"></div>  
+    <!-- <a mat-raised-button [routerLink]="['profile']"*ngIf="loggedIn" >Profile</a> -->
+    <a mat-raised-button [routerLink]="['OrderList']" *ngIf="loggedIn">OrderList</a>  
+    <button mat-raised-button *ngIf="!loggedIn" (click)="login()">Login</button>
+    <button mat-raised-button color="warn" *ngIf="loggedIn" (click)="logout()">Logout</button>
+  </mat-toolbar>
+
+  <div class="main-body">
+    <router-outlet *ngIf="!isIframe"></router-outlet>
+  </div>
+
+  <footer class="app-footer">
+    copyright@2021 - Angular.net Ordering System
+  </footer>
+</div>

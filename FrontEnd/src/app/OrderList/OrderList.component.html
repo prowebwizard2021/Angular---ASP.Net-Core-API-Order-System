@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap Simple Data Table</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  Roles: {{roles}}<br/>
+  Name: {{name}}<br/>
+Username: {{username}}
+<div class="container-fluid">
+    <div class="table-responsive styled-table">
+      <div class="table-wrapper" style="margin-bottom: -30px;">
+        <tr>
+          <th>
+            <div class="d-flex flex-row">
+            <mat-form-field class="example-full-width">
+              <mat-label>ID</mat-label>
+              <input matInput [(ngModel)]="OrderIdFilter" (keyup)="FilterFn()" placeholder="ID">
+            </mat-form-field>
+
+            <button type="button" class="btn btn-light" (click)="sortResult('orderId',true)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+              </svg>
+            </button>
+            <button type="button" class="btn btn-light" (click)="sortResult('orderId',false)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+              </svg>
+            </button>
+          </div>
+        </th>
+          <th></th>
+          <th>
+            <div class="d-flex flex-row">
+            <mat-form-field class="example-full-width">
+              <mat-label>Customer</mat-label>
+              <input matInput [(ngModel)]="OrderCustomerFilter" (keyup)="FilterFn()" placeholder="Customer">
+            </mat-form-field>
+
+            <button type="button" class="btn btn-light" (click)="sortResult('customer',true)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+              </svg>
+            </button>
+            <button type="button" class="btn btn-light" (click)="sortResult('customer',false)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+              </svg>
+            </button>
+          </div>
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+          <div class="d-flex flex-row">
+            <a type="button" class="btn btn-success" routerLink="/dashboard/0">New Order</a>
+          </div>
+        </th>
+        </tr>
+      </div>
+        <div class="table-wrapper">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr style="background-color: #00AA8D; color: #fff;">
+                        <th>OrderID</th>
+                        <th>Name</th>
+                        <th>Customer</th>
+                        <th>ProductGroup</th>
+                        <th>Season</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let dataItem of OrderList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                    <td>{{dataItem.orderId}}</td>
+                    <td>{{dataItem.title}}</td>
+                    <td>{{dataItem.customer}}</td>
+                    <td>{{dataItem.productGroup}}</td>
+                    <td>{{dataItem.season}}</td>
+                    <td>
+                      <a type="button" class="btn btn-info" routerLink="/dashboard/{{dataItem.id}}">Detail</a>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <ngb-pagination [collectionSize]="OrderList.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+    </div>
+</div>
+</body>
+</html>
